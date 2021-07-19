@@ -51,7 +51,7 @@ namespace FM_consol
             }
         }
          
-        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000 0111
+        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000 0111222
         {
             return t1.ClubPower / 100;
         }
