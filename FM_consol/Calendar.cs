@@ -47,11 +47,11 @@ namespace FM_consol
             {
                 team1.ScorePoint += 1;
                 team2.ScorePoint += 1;
-                Console.WriteLine("{0} ничья {1} со счетом {2}"           , team1.Name, team2.Name, ScoreMethod(team1));
+                Console.WriteLine("{0} ничья {1} со счетом {2}", team1.Name, team2.Name, ScoreMethod(team1));
             }
         }
 
-        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000
+        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000 
         {
             return t1.ClubPower / 100;
         }
