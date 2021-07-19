@@ -30,7 +30,7 @@ namespace FM_consol
             }
         }
 
-        // метод определение победителя в матче 
+        // метод определение победителя в матче
         public void ClubPointCalc(Club team1, Club team2)
         {
             if (team1.ClubPower > team2.ClubPower)
@@ -51,7 +51,7 @@ namespace FM_consol
             }
         }
          
-        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000 
+        public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 0000
         {
             return t1.ClubPower / 100;
         }
