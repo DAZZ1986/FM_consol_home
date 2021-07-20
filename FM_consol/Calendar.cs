@@ -11,7 +11,7 @@ namespace FM_consol
         //  сезона когда GamesCount = 10. 
 
         // метод матчей между клубами
-        public void MatchMetod(List <Club> clubCalenTemp)
+        public void MatchMetod(List<Club> clubCalenTemp)
         {
             Console.WriteLine("----------------------------------------------");
             for (int i = 0; i < clubCalenTemp.Count; i++)
@@ -36,7 +36,7 @@ namespace FM_consol
             if (team1.ClubPower > team2.ClubPower)
             {
                 team1.ScorePoint += 3;
-                Console.WriteLine("{0} победил {1} со счетом {2}", team1.Name, team2.Name, ScoreMethod(team1)); 
+                Console.WriteLine("{0} победил {1} со счетом {2}", team1.Name, team2.Name, ScoreMethod(team1));
             }
             if (team1.ClubPower < team2.ClubPower)
             {
@@ -50,12 +50,27 @@ namespace FM_consol
                 Console.WriteLine("{0} ничья {1} со счетом {2}", team1.Name, team2.Name, ScoreMethod(team1));
             }
         }
-         
+
         public int ScoreMethod(Club t1) // из этого метода нужно векрнуть 2 параметра, либо ссылке либо через структурку 000 0111222 000123
         {
             return t1.ClubPower / 100;
         }
 
 
+
     }
+
+    struct Score
+    {
+        int firstTeam;
+        int SecondTeam;
+        Score RetScore()
+        {
+            Score Scr = { 3, 2 };
+            return Scr;
+        }
+
+    }
+
+
 }
