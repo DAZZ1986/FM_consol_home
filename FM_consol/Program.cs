@@ -489,9 +489,8 @@ namespace FM_consol
 
 
 
-
-            Console.WriteLine("Выберите себе клуб:");
             Club myClub = rotor;
+            Console.WriteLine("Вы выбрали себе клуб: {0}", myClub.Name);
 
             // Делаем матчи
             Calendar matches = new Calendar();
