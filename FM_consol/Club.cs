@@ -35,7 +35,7 @@ namespace FM_consol
 
 
 
-
+        // составы команд
         public void ShowPlayerList()
         {
             Console.WriteLine(Name);
@@ -45,11 +45,13 @@ namespace FM_consol
             }
         }
 
+        // баланс клуба
         public void ClubBalans(string clubName, int num)
         {
             Console.WriteLine("Баланс клуба {0} = {1}", clubName, Balanse);
         }
 
+        // сила игроков клуба
         public int ClubPowerCounter(List <Player> team)
         {
             foreach (Player item in team)

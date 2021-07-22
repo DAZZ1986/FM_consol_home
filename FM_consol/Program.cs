@@ -485,24 +485,14 @@ namespace FM_consol
             Calendar matches = new Calendar();
             matches.MatchMetod(RPL);
 
-            Console.WriteLine("----------------");
-
-            // Простой Вывод кол-ва очков клуба
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", rotor.Name, rotor.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", spartak.Name, spartak.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", lokomotiv.Name, lokomotiv.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", cska.Name, cska.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", zenit.Name, zenit.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", dinamo.Name, dinamo.ScorePoint);
 
             Console.WriteLine("----------------");
+
 
             // Табличный Вывод кол-ва очков клуба
             Console.WriteLine("Таблица РПЛ");
             ScorePointTable table = new ScorePointTable();
             table.DrawTable(RPL);
-
-
 
 
             Console.WriteLine("----------------");
