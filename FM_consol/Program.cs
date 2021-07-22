@@ -8,31 +8,31 @@ namespace FM_consol
         static void Main(string[] args)
         {
             // todo: Сделать через Вариант 2 через коллекции и сделать через Вариант 2.1 через БД.
-            Club empty = new Club();
+            Club empty = new Club(); // клуб заглушка
             Club rotor = new Club();
             rotor.Name = "Rotor";
             rotor.Balanse = 1000;
-            rotor.GamesCount = 32;
+            rotor.GamesCount = 0;
             Club spartak = new Club();
             spartak.Name = "Spartak";
             spartak.Balanse = 1500;
-            spartak.GamesCount = 32;
+            spartak.GamesCount = 0;
             Club dinamo = new Club();
             dinamo.Name = "Dinamo";
             dinamo.Balanse = 1000;
-            dinamo.GamesCount = 32;
+            dinamo.GamesCount = 0;
             Club zenit = new Club();
             zenit.Name = "Zenit";
             zenit.Balanse = 2100;
-            zenit.GamesCount = 32;
+            zenit.GamesCount = 0;
             Club cska = new Club();
             cska.Name = "Cska";
             cska.Balanse = 1000;
-            cska.GamesCount = 32;
+            cska.GamesCount = 0;
             Club lokomotiv = new Club();
             lokomotiv.Name = "Lokomotiv";
             lokomotiv.Balanse = 1200;
-            lokomotiv.GamesCount = 32;
+            lokomotiv.GamesCount = 0;
 
 
             Player esipov = new Player();
@@ -488,8 +488,9 @@ namespace FM_consol
             Console.WriteLine("Сила игроков клуба {0} = {1}", dinamo.Name, dinamo.ClubPower);
 
 
-            Console.WriteLine("----------------");
-            Club myClub = spartak;
+            // пользователь выбырает для себя клуб
+            Console.WriteLine("---------------------------");
+            Club myClub = empty; // клуб заглушка
             Console.WriteLine("Клубы на выбор:");
             foreach (Club item in RPL)
             {
@@ -505,9 +506,9 @@ namespace FM_consol
                     break;
                 }
             }
+            Console.WriteLine("Вы выбрали клуб: {0}", myClub.Name);
+            Console.WriteLine("---------------------------");
 
-            Console.WriteLine("Вы выбрали себе клуб: {0}", myClub.Name);
-            Console.WriteLine("----------------");
 
             // Делаем матчи
             Calendar matches = new Calendar();

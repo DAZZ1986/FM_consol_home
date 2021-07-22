@@ -25,10 +25,12 @@ namespace FM_consol
                     }
                     Console.WriteLine("Сегодня играет {0} vs {1}", RPLclubs[i].Name, RPLclubs[j].Name);
                     ClubPointCalc(RPLclubs[i], RPLclubs[j]);
+                    RPLclubs[i].GamesCount++;
+                    RPLclubs[j].GamesCount++;
                     Console.WriteLine("----------------------------------------------");
-                    //Console.ReadKey();
+                    
                     Update dalee = new Update();
-                    dalee.UpdateMethod(my); // нужно назначить клуб для игрока либо через конструктор, метод, по второй ссылке на объект
+                    dalee.UpdateMethod(my); 
                 }
             }
         }

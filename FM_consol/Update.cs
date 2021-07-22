@@ -14,7 +14,7 @@ namespace FM_consol
             Console.WriteLine("1 - баланс клуба");
             Console.WriteLine("2 - состав клуба");
             Console.WriteLine("3 - сила игроков клуба");
-            Console.WriteLine("4 - места в таблице РПЛ");
+            Console.WriteLine("4 - кол-во очков в таблице РПЛ");
             Console.WriteLine("5 - матчей сыграно и осталось");
             Console.WriteLine("6 - провести трансферы");
             Console.WriteLine("7 - Далее");
@@ -44,7 +44,8 @@ namespace FM_consol
                     break;
 
                 case 5:
-                    Console.Write("матчей сыграно и осталось = ");
+                    byte b = obj.GamesCount;
+                    Console.Write("Ваша команда {0} сыграла {1} матчей в РПЛ.", obj.Name, b);
                     break;
 
                 case 6:
