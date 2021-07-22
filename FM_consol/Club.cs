@@ -38,7 +38,6 @@ namespace FM_consol
         // составы команд
         public void ShowPlayerList()
         {
-            Console.WriteLine("----------------");
             Console.WriteLine(Name);
             foreach (Player item in team)
             {

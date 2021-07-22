@@ -24,28 +24,27 @@ namespace FM_consol
             switch (choice)
             {
                 case 1:
-                    Console.Write("Баланс вашего клуба = ");
                     obj.ClubBalans(obj);
                     break;
 
                 case 2:
-                    Console.Write("Состав вашего клуба = ");
+                    Console.Write("Состав вашего клуба ");
                     obj.ShowPlayerList();
                     break;
 
                 case 3:
-                    Console.Write("Сила игроков вашего клуба = "); 
-                    obj.ClubPowerCounter(obj.team);
+                    int c = obj.ClubPower;
+                    Console.WriteLine("Сила игроков вашего клуба {0} = {1}", obj.Name, c); 
                     break;
 
                 case 4:
                     byte a = obj.ScorePoint;
-                    Console.Write("Ваша команда {0} набрала {1} очков в РПЛ.", obj.Name, a);
+                    Console.WriteLine("Ваша команда {0} набрала {1} очков в РПЛ.", obj.Name, a);
                     break;
 
                 case 5:
                     byte b = obj.GamesCount;
-                    Console.Write("Ваша команда {0} сыграла {1} матчей в РПЛ.", obj.Name, b);
+                    Console.WriteLine("Ваша команда {0} сыграла {1} матчей в РПЛ.", obj.Name, b);
                     break;
 
                 case 6:
@@ -53,7 +52,7 @@ namespace FM_consol
                     break;
 
                 case 7:
-                    Console.Write("Далее ...");
+                    Console.WriteLine("Далее ...");
                     break;
 
                 default:
