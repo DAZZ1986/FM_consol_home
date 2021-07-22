@@ -10,27 +10,30 @@ namespace FM_consol
         //  2. создать трансферные периоды в середине сезона, когда GamesCount = 5 и в конце
         //  сезона когда GamesCount = 10.
 
+
         // метод матчей между клубами
-        public void MatchMetod(List<Club> clubCalenTemp)
+        public void MatchMetod(List<Club> RPLclubs, Club my)
         {
             Console.WriteLine("----------------------------------------------");
-            for (int i = 0; i < clubCalenTemp.Count; i++)
+            for (int i = 0; i < RPLclubs.Count; i++)
             {
-                for (int j = 0; j < clubCalenTemp.Count; j++)
+                for (int j = 0; j < RPLclubs.Count; j++)
                 {
                     if (i == j)
                     {
                         continue;
                     }
-                    Console.WriteLine("Сегодня играет {0} vs {1}", clubCalenTemp[i].Name, clubCalenTemp[j].Name);
-                    ClubPointCalc(clubCalenTemp[i], clubCalenTemp[j]);
+                    Console.WriteLine("Сегодня играет {0} vs {1}", RPLclubs[i].Name, RPLclubs[j].Name);
+                    ClubPointCalc(RPLclubs[i], RPLclubs[j]);
                     Console.WriteLine("----------------------------------------------");
                     //Console.ReadKey();
+                    Update dalee = new Update();
+                    dalee.UpdateMethod(my); // нужно назначить клуб для игрока либо через конструктор, метод, по второй ссылке на объект
                 }
             }
         }
 
-        // метод определение победителя в матче 
+        // начисление очков (победа, поражение, ничья) 
         public void ClubPointCalc(Club team1, Club team2)
         {
             if (team1.ClubPower > team2.ClubPower)
@@ -51,6 +54,7 @@ namespace FM_consol
             }
         }
 
+        // расчет счета в матче
         public string ScoreMethod0(Club t1, Club t2) // тупо конверт в стринг 
         {
             int a = t1.ClubPower / 100;
@@ -59,9 +63,9 @@ namespace FM_consol
         }
         public string ScoreMethod(Club t1, Club t2) // тупо конверт в стринг из массива 
         {
-            int[] Src = new int[] { t1.ClubPower/100, t2.ClubPower/100 };
+            int[] Src = new int[] { t1.ClubPower/100, t2.ClubPower/100 }; // тут баг тк счет 8 : 8
             string c = Src[0] + " : " + Src[1];
-            return Convert.ToString(c);
+            return c;
         }
         public Object ScoreMethod1(Club t1, Club t2) // из этого метода нужно векрнуть 2 параметра - передал объекты
         {

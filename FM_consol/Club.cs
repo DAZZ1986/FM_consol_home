@@ -27,7 +27,7 @@ namespace FM_consol
 
         public Club()
         {
-
+            //Club myClub = rotor;
             team = new List<Player>();
 
         }
@@ -38,20 +38,24 @@ namespace FM_consol
         // составы команд
         public void ShowPlayerList()
         {
+            Console.WriteLine("----------------");
             Console.WriteLine(Name);
             foreach (Player item in team)
             {
                 Console.WriteLine(item.LastName);
             }
+            Console.WriteLine("----------------");
         }
 
         // баланс клуба
-        public void ClubBalans(string clubName, int num)
+        public void ClubBalans()
         {
-            Console.WriteLine("Баланс клуба {0} = {1}", clubName, Balanse);
+            Console.WriteLine("----------------");
+            Console.WriteLine("Баланс клуба {0} = {1}", obj.Name, obj.Balanse);
+            Console.WriteLine("----------------");
         }
 
-        // сила игроков клуба
+        // сила игроков клубов РПЛ
         public int ClubPowerCounter(List <Player> team)
         {
             foreach (Player item in team)

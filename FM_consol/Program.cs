@@ -378,14 +378,14 @@ namespace FM_consol
 
 
 
-            // Сделали тестовые трансферы.
+            // трансфер из клуба в клуб
             Transfer change = new Transfer();
             change.Transf(chichkin, rotor);
             change.Transf(veritennikov, spartak);
             change.Transf(veritennikov, rotor, spartak);
 
 
-            //  добавить игроков в клубы
+            //  трансфер свободного агента
             change.Transf(aldonin, rotor);
             change.Transf(veritennikov, rotor);
             change.Transf(esipov, rotor);
@@ -457,8 +457,7 @@ namespace FM_consol
             change.Transf(romashchenko, dinamo);
             change.Transf(terekhin, dinamo);
 
-
-            // Создали массив с клубами РПЛ.
+            // создали массив с клубами РПЛ.
             List<Club> RPL = new List<Club>();
             RPL.Add(rotor);
             RPL.Add(spartak);
@@ -468,7 +467,15 @@ namespace FM_consol
             RPL.Add(dinamo);
 
 
-            // Считаем ClubPower для всех клубов РПЛ.
+            // вывод составов команд
+            rotor.ShowPlayerList();
+
+
+            // баланс клуба
+            rotor.ClubBalans();
+
+
+            // сила игроков клубов РПЛ
             foreach (Club item in RPL)
             {
                 item.ClubPowerCounter(item.team);
@@ -481,47 +488,38 @@ namespace FM_consol
             Console.WriteLine("Сила игроков клуба {0} = {1}", dinamo.Name, dinamo.ClubPower);
 
 
+
+
+            Console.WriteLine("Выберите себе клуб:");
+            Club myClub = rotor;
+
             // Делаем матчи
             Calendar matches = new Calendar();
-            matches.MatchMetod(RPL);
+            matches.MatchMetod(RPL, myClub);
 
 
-            Console.WriteLine("----------------");
 
-
-            // Табличный Вывод кол-ва очков клуба
+            // Вывод таблицы РПЛ
             Console.WriteLine("Таблица РПЛ");
             ScorePointTable table = new ScorePointTable();
             table.DrawTable(RPL);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Console.WriteLine("----------------");
-
-
-
-            /*
-            // Вывели составы команд.
-            Console.WriteLine("----------------");
-            spartak.ShowPlayerList();
-            Console.WriteLine("----------------");
-            rotor.ShowPlayerList();
-            Console.WriteLine("----------------");
-            dinamo.ShowPlayerList();
-            */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             /*
 Вариант 1. Ну если тебе нужно просто указать клуб у игрока, то создаёшь ему свойства типа Club и при

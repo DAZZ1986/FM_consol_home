@@ -49,7 +49,7 @@ namespace FM_consol
 
             // удаление игрока из старого клуба с перечислением денег за трансфер
             clubSell.team.Remove(obj);
-            Console.Write("{0} получил от {1} {2}$!", clubSell.Name, clubBuy.Name, obj.Price);
+            Console.WriteLine("{0} получил от {1} {2}$!", clubSell.Name, clubBuy.Name, obj.Price);
             clubSell.Balanse += obj.Price;
 
             Console.WriteLine("----------------");
