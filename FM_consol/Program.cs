@@ -8,7 +8,7 @@ namespace FM_consol
         static void Main(string[] args)
         {
             // todo: Сделать через Вариант 2 через коллекции и сделать через Вариант 2.1 через БД.
-
+            Club empty = new Club();
             Club rotor = new Club();
             rotor.Name = "Rotor";
             rotor.Balanse = 1000;
@@ -488,9 +488,26 @@ namespace FM_consol
             Console.WriteLine("Сила игроков клуба {0} = {1}", dinamo.Name, dinamo.ClubPower);
 
 
+            Console.WriteLine("----------------");
+            Club myClub = spartak;
+            Console.WriteLine("Клубы на выбор:");
+            foreach (Club item in RPL)
+            {
+                Console.WriteLine("{0}", item.Name);
+            }
+            Console.WriteLine("Введите имя клуба: ");
+            string nameMyClub = Console.ReadLine();
+            foreach (Club item in RPL)
+            {
+                if (item.Name == nameMyClub)
+                {
+                    myClub = item;
+                    break;
+                }
+            }
 
-            Club myClub = rotor;
             Console.WriteLine("Вы выбрали себе клуб: {0}", myClub.Name);
+            Console.WriteLine("----------------");
 
             // Делаем матчи
             Calendar matches = new Calendar();
