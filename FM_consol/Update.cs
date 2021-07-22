@@ -25,7 +25,7 @@ namespace FM_consol
             {
                 case 1:
                     Console.Write("Баланс вашего клуба = ");
-                    obj.ClubBalans();
+                    obj.ClubBalans(obj);
                     break;
 
                 case 2:

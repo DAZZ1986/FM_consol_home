@@ -48,7 +48,7 @@ namespace FM_consol
         }
 
         // баланс клуба
-        public void ClubBalans()
+        public void ClubBalans(Club obj)
         {
             Console.WriteLine("----------------");
             Console.WriteLine("Баланс клуба {0} = {1}", obj.Name, obj.Balanse);

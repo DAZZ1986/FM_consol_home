@@ -472,7 +472,7 @@ namespace FM_consol
 
 
             // баланс клуба
-            rotor.ClubBalans();
+            rotor.ClubBalans(rotor);
 
 
             // сила игроков клубов РПЛ
