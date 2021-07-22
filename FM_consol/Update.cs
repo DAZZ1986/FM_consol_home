@@ -34,7 +34,7 @@ namespace FM_consol
                     break;
 
                 case 3:
-                    Console.Write("Сила игроков вашего клуба = ");
+                    Console.Write("Сила игроков вашего клуба = "); 
                     obj.ClubPowerCounter(obj.team);
                     break;
 
