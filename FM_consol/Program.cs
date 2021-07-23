@@ -576,31 +576,46 @@ namespace FM_consol
 
             // обрабатываем исключение при выборе клуба
             string nameMyClub = " ";
-
+            bool yes = false;
             for (int i = 0; i < 20; )
             {
                 try
                 {
                     nameMyClub = Console.ReadLine();
-
-                    foreach (Club item in RPL)
+                    for (int j = 0; j <= RPL.Count; )
                     {
-                        if (nameMyClub != item.Name)
+                        if (j == RPL.Count)
                         {
-
+                            throw new Exception();
                         }
-                        else
+                        foreach (Club item in RPL)
+                        {
+                            if (nameMyClub != item.Name)
+                            {
+                                
+                            }
+                            else
+                            {
+                                yes = true;
+                                break;
+                            }
+                            j++;
+                        }
+                        if (yes)
                         {
                             break;
                         }
                     }
-                    throw new Exception();
-                
+                    
                 }
                 catch (Exception)
                 {
                     Console.WriteLine("Данного клуба не существует! Повторите попытку: ");
                     i++;
+                }
+                if (yes)
+                {
+                    break;
                 }
             }
 

@@ -53,14 +53,57 @@ namespace FM_consol
                     Console.WriteLine("Баланс вашего клуба {0} = {1}", obj.Name, d);
                     Console.WriteLine("Все игроки РПЛ:");
                     obj.ShowAllPlayerList(); // показываем List со всеми игроками RPLPlayerLocal
-                    Console.WriteLine("Введите фамилию игрока которого хотите купить:");
-                    string buyName = Console.ReadLine();
-                    // сделать поиск по фамилии и провести трансфер
-                    Transfer tempTransfer = new Transfer();
+                    Console.WriteLine("Введите фамилию игрока которого хотите купить: (10 попыток)");
 
+                    // 1.обраб. искл., 2.поиск по фамилии, 3.трансфер
+                    string buyName = " ";
+                    Transfer tempTransfer = new Transfer();
                     List<Player> AllPlayerListtemp = new List<Player>();
                     AllPlayerListtemp = obj.AllPlayerList();
+                    // 1.обраб. искл.
+                    bool outflag = false;
+                    for (int i = 0; i < 10;)
+                    {
+                        try
+                        {
+                            buyName = Console.ReadLine();
+                            for (int j = 0; j <= AllPlayerListtemp.Count;)
+                            {
+                                if (j == AllPlayerListtemp.Count)
+                                {
+                                    throw new Exception();
+                                }
+                                foreach (Player item in AllPlayerListtemp)
+                                {
+                                    if (buyName != item.LastName)
+                                    {
 
+                                    }
+                                    else
+                                    {
+                                        outflag = true;
+                                        break;
+                                    }
+                                    j++;
+                                }
+                                if (outflag)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Данного игрока не существует! Повторите попытку: ");
+                            i++;
+                        }
+                        if (outflag)
+                        {
+                            break;
+                        }
+                    }
+
+                    // 2.поиск по фамилии, 3.трансфер
                     foreach (Player item in AllPlayerListtemp)
                     {
                         if (item.NameClub != null)
@@ -81,11 +124,6 @@ namespace FM_consol
                         }
 
                     }
-
-
-                    
-
-
                     break;
 
                 case 7:
