@@ -572,37 +572,41 @@ namespace FM_consol
             {
                 Console.WriteLine("{0}", item.Name);
             }
-            Console.WriteLine("Введите имя клуба: ");
+            Console.WriteLine("Введите имя клуба: (у вас 20 попыток)");
 
+            // обрабатываем исключение при выборе клуба
+            string nameMyClub = " ";
 
-            
-
-
-
-            string nameMyClub = Console.ReadLine();
-
-            // обернуть в исключеные
-            try
+            for (int i = 0; i < 20; )
             {
-                foreach (Club item in RPL)
+                try
                 {
-                    if (item.Name == nameMyClub)
+                    nameMyClub = Console.ReadLine();
+
+                    foreach (Club item in RPL)
                     {
-                        myClub = item;
-                        break;
+                        if (nameMyClub != item.Name)
+                        {
+
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
+                    throw new Exception();
+                
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Данного клуба не существует! Повторите попытку: ");
+                    i++;
                 }
             }
-            catch 
-            {
-                Console.WriteLine("Возникло исключение!");
 
-                throw;
-            }
 
-            
-            /*
-            string nameMyClub = Console.ReadLine();
+
+            // присваеваем выбранный клуб
             foreach (Club item in RPL)
             {
                 if (item.Name == nameMyClub)
@@ -611,7 +615,7 @@ namespace FM_consol
                     break;
                 }
             }
-            */
+            
             Console.WriteLine("Вы выбрали клуб: {0}", myClub.Name);
             Console.WriteLine("---------------------------");
 
