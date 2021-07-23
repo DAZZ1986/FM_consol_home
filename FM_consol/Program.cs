@@ -573,6 +573,35 @@ namespace FM_consol
                 Console.WriteLine("{0}", item.Name);
             }
             Console.WriteLine("Введите имя клуба: ");
+
+
+            
+
+
+
+            string nameMyClub = Console.ReadLine();
+
+            // обернуть в исключеные
+            try
+            {
+                foreach (Club item in RPL)
+                {
+                    if (item.Name == nameMyClub)
+                    {
+                        myClub = item;
+                        break;
+                    }
+                }
+            }
+            catch 
+            {
+                Console.WriteLine("Возникло исключение!");
+
+                throw;
+            }
+
+            
+            /*
             string nameMyClub = Console.ReadLine();
             foreach (Club item in RPL)
             {
@@ -582,6 +611,7 @@ namespace FM_consol
                     break;
                 }
             }
+            */
             Console.WriteLine("Вы выбрали клуб: {0}", myClub.Name);
             Console.WriteLine("---------------------------");
 
