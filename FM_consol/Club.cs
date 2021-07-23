@@ -23,22 +23,45 @@ namespace FM_consol
 
         public List<Player> team;
 
+        public static List<Player> RPLPlayerLocal = new List<Player>(); // создал доп массив с игроками в методе
+
 
 
         public Club()
         {
-            //Club myClub = rotor;
             team = new List<Player>();
-
         }
 
 
-
-
-        // составы команд
-        public void ShowPlayerList()
+        // return RPLPlayerLocal
+        public List<Player> AllPlayerList()
         {
-            Console.WriteLine(Name);
+            return RPLPlayerLocal;
+        }
+
+        // Set dop List со всеми игроками РПЛ
+        public void SetAllPlayerList(List<Player> all)
+        {
+            foreach (Player item in all) // заполнил доп массив
+            {
+                RPLPlayerLocal.Add(item);
+            }
+        }
+
+        // Show List со всеми игроками РПЛ
+        public void ShowAllPlayerList()
+        {
+            Console.WriteLine("{0,-13} | {1,-5} | {2,-4}", "Имя", "Скилл", "Цена");
+            foreach (Player item in RPLPlayerLocal) // вывод доп массива
+            {
+                Console.WriteLine("{0,-13} | {1,-5} | {2,-4}", item.LastName, item.SkillPoint, item.Price);
+            }
+            Console.WriteLine("-----------------------------------");
+        }
+
+        // состав вашей команды
+        public void ShowMyPlayerList()
+        {
             foreach (Player item in team)
             {
                 Console.WriteLine(item.LastName);

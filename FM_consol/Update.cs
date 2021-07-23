@@ -28,8 +28,8 @@ namespace FM_consol
                     break;
 
                 case 2:
-                    Console.Write("Состав вашего клуба ");
-                    obj.ShowPlayerList();
+                    Console.WriteLine("Состав вашего клуба ");
+                    obj.ShowMyPlayerList();
                     break;
 
                 case 3:
@@ -48,7 +48,44 @@ namespace FM_consol
                     break;
 
                 case 6:
-                    Console.Write("провести трансферы ");
+                    Console.WriteLine("Трансферы");
+                    int d = obj.Balanse;
+                    Console.WriteLine("Баланс вашего клуба {0} = {1}", obj.Name, d);
+                    Console.WriteLine("Все игроки РПЛ:");
+                    obj.ShowAllPlayerList(); // показываем List со всеми игроками RPLPlayerLocal
+                    Console.WriteLine("Введите фамилию игрока которого хотите купить:");
+                    string buyName = Console.ReadLine();
+                    // сделать поиск по фамилии и провести трансфер
+                    Transfer tempTransfer = new Transfer();
+
+                    List<Player> AllPlayerListtemp = new List<Player>();
+                    AllPlayerListtemp = obj.AllPlayerList();
+
+                    foreach (Player item in AllPlayerListtemp)
+                    {
+                        if (item.NameClub != null)
+                        {
+                            if (buyName == item.LastName)
+                            {
+                                tempTransfer.Transf(item, obj, item.NameClub);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (buyName == item.LastName)
+                            {
+                                tempTransfer.Transf(item, obj);
+                                break;
+                            }
+                        }
+
+                    }
+
+
+                    
+
+
                     break;
 
                 case 7:

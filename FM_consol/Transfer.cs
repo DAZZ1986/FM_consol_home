@@ -20,8 +20,10 @@ namespace FM_consol
             }
             clubBuy.team.Add(obj);
             Console.WriteLine("{0} купил {1} {2} за {3}$ как свободного агента!", clubBuy.Name, obj.Name, obj.LastName, "0");
+            obj.NameClub = clubBuy;
             Console.WriteLine("----------------");
         }
+
 
         // transfer из стороннего клуба
         public void Transf(Player obj, Club clubBuy, Club clubSell)
@@ -41,6 +43,7 @@ namespace FM_consol
                 clubBuy.team.Add(obj);
                 Console.WriteLine("{0} купил {1} {2} за {3}$ из {4}!", clubBuy.Name, obj.Name, obj.LastName, obj.Price, clubSell.Name);
                 clubBuy.Balanse -= obj.Price;
+                obj.NameClub = clubBuy;
             }
             else
             {

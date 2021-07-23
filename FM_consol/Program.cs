@@ -374,18 +374,14 @@ namespace FM_consol
 
 
 
-
-
-
-
             // трансфер из клуба в клуб
             Transfer change = new Transfer();
-            change.Transf(chichkin, rotor);
             change.Transf(veritennikov, spartak);
             change.Transf(veritennikov, rotor, spartak);
 
 
             //  трансфер свободного агента
+            change.Transf(chichkin, rotor);
             change.Transf(aldonin, rotor);
             change.Transf(veritennikov, rotor);
             change.Transf(esipov, rotor);
@@ -457,6 +453,86 @@ namespace FM_consol
             change.Transf(romashchenko, dinamo);
             change.Transf(terekhin, dinamo);
 
+
+
+            // создали массив с игроками РПЛ.
+            List<Player> RPLPlayers = new List<Player>();
+
+            RPLPlayers.Add(chichkin);
+            RPLPlayers.Add(aldonin);
+            RPLPlayers.Add(veritennikov);
+            RPLPlayers.Add(esipov);
+            RPLPlayers.Add(smirnov);
+            RPLPlayers.Add(zernov);
+            RPLPlayers.Add(zubko);
+            RPLPlayers.Add(krivov);
+            RPLPlayers.Add(mogilevskii);
+            RPLPlayers.Add(nidergaus);
+            RPLPlayers.Add(misin);
+
+            RPLPlayers.Add(nigmatullin);
+            RPLPlayers.Add(ananko);
+            RPLPlayers.Add(gorlukovich);
+            RPLPlayers.Add(evseev);
+            RPLPlayers.Add(khlestov);
+            RPLPlayers.Add(alenichev);
+            RPLPlayers.Add(meleshin);
+            RPLPlayers.Add(titov);
+            RPLPlayers.Add(tsymbalar);
+            RPLPlayers.Add(buznikin);
+            RPLPlayers.Add(tikhonov);
+
+            RPLPlayers.Add(ovchinnikov);
+            RPLPlayers.Add(cherevchenko);
+            RPLPlayers.Add(solomatin);
+            RPLPlayers.Add(pashinin);
+            RPLPlayers.Add(gurenko);
+            RPLPlayers.Add(maminov);
+            RPLPlayers.Add(kharlachev);
+            RPLPlayers.Add(loskov);
+            RPLPlayers.Add(dzhanashiia);
+            RPLPlayers.Add(borodiuk);
+            RPLPlayers.Add(iablochkin);
+
+            RPLPlayers.Add(novosadov);
+            RPLPlayers.Add(semak);
+            RPLPlayers.Add(bokov);
+            RPLPlayers.Add(minko);
+            RPLPlayers.Add(mamchur);
+            RPLPlayers.Add(sedunov);
+            RPLPlayers.Add(iakovenko);
+            RPLPlayers.Add(khomukha);
+            RPLPlayers.Add(ulianov);
+            RPLPlayers.Add(semshov);
+            RPLPlayers.Add(shutov);
+
+            RPLPlayers.Add(prikhodko);
+            RPLPlayers.Add(davydov);
+            RPLPlayers.Add(kulkov);
+            RPLPlayers.Add(dymarchuk);
+            RPLPlayers.Add(zazulin);
+            RPLPlayers.Add(ugarov);
+            RPLPlayers.Add(gorshkov);
+            RPLPlayers.Add(osipov);
+            RPLPlayers.Add(zezin);
+            RPLPlayers.Add(panov);
+            RPLPlayers.Add(gerasimets);
+
+            RPLPlayers.Add(smetanin);
+            RPLPlayers.Add(shtaniuk);
+            RPLPlayers.Add(ostrovskii);
+            RPLPlayers.Add(kovtun);
+            RPLPlayers.Add(tochilin);
+            RPLPlayers.Add(skokov);
+            RPLPlayers.Add(grishin);
+            RPLPlayers.Add(kulchii);
+            RPLPlayers.Add(gusev);
+            RPLPlayers.Add(romashchenko);
+            RPLPlayers.Add(terekhin);
+
+            empty.SetAllPlayerList(RPLPlayers);
+            
+
             // создали массив с клубами РПЛ.
             List<Club> RPL = new List<Club>();
             RPL.Add(rotor);
@@ -468,7 +544,7 @@ namespace FM_consol
 
 
             // вывод составов команд
-            rotor.ShowPlayerList();
+            rotor.ShowMyPlayerList();
 
 
             // баланс клуба

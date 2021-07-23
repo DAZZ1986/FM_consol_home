@@ -34,8 +34,12 @@ namespace FM_consol
             get { return skillPoint; }
         }
 
-        
-
+        Club nameClub;
+        public Club NameClub
+        {
+            set { nameClub = value; }
+            get { return nameClub; }
+        }
 
 
     }
