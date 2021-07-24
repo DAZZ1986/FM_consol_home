@@ -55,12 +55,18 @@ namespace FM_consol
             }
         }
 
-        // расчет счета в матче
+        /* расчет счета в матче, учитываем:
+            - сила игроков
+            - форма команды
+            - игра дома или на выезде
+            - уровень тренера
+        */
         public string ScoreMethod0(Club t1, Club t2) // тупо конверт в стринг 
         {
-            int a = t1.ClubPower / 100;
-            int b = t2.ClubPower / 100;
-            return Convert.ToString(a) + " : " + Convert.ToString(b);
+            int tt1 = t1.ClubPower / 100;
+            int tt2 = t2.ClubPower / 100;
+            string ab = Convert.ToString(tt1) + Convert.ToString(tt2);
+            return ab;
         }
         public string ScoreMethod(Club t1, Club t2) // тупо конверт в стринг из массива 
         {

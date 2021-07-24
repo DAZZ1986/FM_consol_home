@@ -59,7 +59,7 @@ namespace FM_consol
             Console.WriteLine("-----------------------------------");
         }
 
-        // состав вашей команды
+        // состав вашей команды, как метод понял что я суда передал клуб Ротор???
         public void ShowMyPlayerList()
         {
             foreach (Player item in team)
