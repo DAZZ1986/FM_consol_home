@@ -8,31 +8,31 @@ namespace FM_consol
         static void Main(string[] args)
         {
             // todo: Сделать через Вариант 2 через коллекции и сделать через Вариант 2.1 через БД.
-
+            Club empty = new Club(); // клуб заглушка
             Club rotor = new Club();
             rotor.Name = "Rotor";
             rotor.Balanse = 1000;
-            rotor.GamesCount = 32;
+            rotor.GamesCount = 0;
             Club spartak = new Club();
             spartak.Name = "Spartak";
             spartak.Balanse = 1500;
-            spartak.GamesCount = 32;
+            spartak.GamesCount = 0;
             Club dinamo = new Club();
             dinamo.Name = "Dinamo";
             dinamo.Balanse = 1000;
-            dinamo.GamesCount = 32;
+            dinamo.GamesCount = 0;
             Club zenit = new Club();
             zenit.Name = "Zenit";
             zenit.Balanse = 2100;
-            zenit.GamesCount = 32;
+            zenit.GamesCount = 0;
             Club cska = new Club();
             cska.Name = "Cska";
             cska.Balanse = 1000;
-            cska.GamesCount = 32;
+            cska.GamesCount = 0;
             Club lokomotiv = new Club();
             lokomotiv.Name = "Lokomotiv";
             lokomotiv.Balanse = 1200;
-            lokomotiv.GamesCount = 32;
+            lokomotiv.GamesCount = 0;
 
 
             Player esipov = new Player();
@@ -374,18 +374,14 @@ namespace FM_consol
 
 
 
-
-
-
-
-            // Сделали тестовые трансферы.
+            // трансфер из клуба в клуб
             Transfer change = new Transfer();
-            change.Transf(chichkin, rotor);
             change.Transf(veritennikov, spartak);
             change.Transf(veritennikov, rotor, spartak);
 
 
-            //  добавить игроков в клубы
+            //  трансфер свободного агента
+            change.Transf(chichkin, rotor);
             change.Transf(aldonin, rotor);
             change.Transf(veritennikov, rotor);
             change.Transf(esipov, rotor);
@@ -458,7 +454,86 @@ namespace FM_consol
             change.Transf(terekhin, dinamo);
 
 
-            // Создали массив с клубами РПЛ.
+
+            // создали массив с игроками РПЛ.
+            List<Player> RPLPlayers = new List<Player>();
+
+            RPLPlayers.Add(chichkin);
+            RPLPlayers.Add(aldonin);
+            RPLPlayers.Add(veritennikov);
+            RPLPlayers.Add(esipov);
+            RPLPlayers.Add(smirnov);
+            RPLPlayers.Add(zernov);
+            RPLPlayers.Add(zubko);
+            RPLPlayers.Add(krivov);
+            RPLPlayers.Add(mogilevskii);
+            RPLPlayers.Add(nidergaus);
+            RPLPlayers.Add(misin);
+
+            RPLPlayers.Add(nigmatullin);
+            RPLPlayers.Add(ananko);
+            RPLPlayers.Add(gorlukovich);
+            RPLPlayers.Add(evseev);
+            RPLPlayers.Add(khlestov);
+            RPLPlayers.Add(alenichev);
+            RPLPlayers.Add(meleshin);
+            RPLPlayers.Add(titov);
+            RPLPlayers.Add(tsymbalar);
+            RPLPlayers.Add(buznikin);
+            RPLPlayers.Add(tikhonov);
+
+            RPLPlayers.Add(ovchinnikov);
+            RPLPlayers.Add(cherevchenko);
+            RPLPlayers.Add(solomatin);
+            RPLPlayers.Add(pashinin);
+            RPLPlayers.Add(gurenko);
+            RPLPlayers.Add(maminov);
+            RPLPlayers.Add(kharlachev);
+            RPLPlayers.Add(loskov);
+            RPLPlayers.Add(dzhanashiia);
+            RPLPlayers.Add(borodiuk);
+            RPLPlayers.Add(iablochkin);
+
+            RPLPlayers.Add(novosadov);
+            RPLPlayers.Add(semak);
+            RPLPlayers.Add(bokov);
+            RPLPlayers.Add(minko);
+            RPLPlayers.Add(mamchur);
+            RPLPlayers.Add(sedunov);
+            RPLPlayers.Add(iakovenko);
+            RPLPlayers.Add(khomukha);
+            RPLPlayers.Add(ulianov);
+            RPLPlayers.Add(semshov);
+            RPLPlayers.Add(shutov);
+
+            RPLPlayers.Add(prikhodko);
+            RPLPlayers.Add(davydov);
+            RPLPlayers.Add(kulkov);
+            RPLPlayers.Add(dymarchuk);
+            RPLPlayers.Add(zazulin);
+            RPLPlayers.Add(ugarov);
+            RPLPlayers.Add(gorshkov);
+            RPLPlayers.Add(osipov);
+            RPLPlayers.Add(zezin);
+            RPLPlayers.Add(panov);
+            RPLPlayers.Add(gerasimets);
+
+            RPLPlayers.Add(smetanin);
+            RPLPlayers.Add(shtaniuk);
+            RPLPlayers.Add(ostrovskii);
+            RPLPlayers.Add(kovtun);
+            RPLPlayers.Add(tochilin);
+            RPLPlayers.Add(skokov);
+            RPLPlayers.Add(grishin);
+            RPLPlayers.Add(kulchii);
+            RPLPlayers.Add(gusev);
+            RPLPlayers.Add(romashchenko);
+            RPLPlayers.Add(terekhin);
+
+            empty.SetAllPlayerList(RPLPlayers);
+            
+
+            // создали массив с клубами РПЛ.
             List<Club> RPL = new List<Club>();
             RPL.Add(rotor);
             RPL.Add(spartak);
@@ -468,7 +543,15 @@ namespace FM_consol
             RPL.Add(dinamo);
 
 
-            // Считаем ClubPower для всех клубов РПЛ.
+            // вывод составов команд
+            rotor.ShowMyPlayerList();
+
+
+            // баланс клуба
+            rotor.ClubBalans(rotor);
+
+
+            // сила игроков клубов РПЛ
             foreach (Club item in RPL)
             {
                 item.ClubPowerCounter(item.team);
@@ -481,48 +564,104 @@ namespace FM_consol
             Console.WriteLine("Сила игроков клуба {0} = {1}", dinamo.Name, dinamo.ClubPower);
 
 
+            // пользователь выбырает для себя клуб
+            Console.WriteLine("---------------------------");
+            Club myClub = empty; // клуб заглушка
+            Console.WriteLine("Клубы на выбор:");
+            foreach (Club item in RPL)
+            {
+                Console.WriteLine("{0}", item.Name);
+            }
+            Console.WriteLine("Введите имя клуба: (у вас 20 попыток)");
+
+            // обрабатываем исключение при выборе клуба
+            string nameMyClub = " ";
+            bool yes = false;
+            for (int i = 0; i < 20; )
+            {
+                try
+                {
+                    nameMyClub = Console.ReadLine();
+                    for (int j = 0; j <= RPL.Count; )
+                    {
+                        if (j == RPL.Count)
+                        {
+                            throw new Exception();
+                        }
+                        foreach (Club item in RPL)
+                        {
+                            if (nameMyClub != item.Name)
+                            {
+                                
+                            }
+                            else
+                            {
+                                yes = true;
+                                break;
+                            }
+                            j++;
+                        }
+                        if (yes)
+                        {
+                            break;
+                        }
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Данного клуба не существует! Повторите попытку: ");
+                    i++;
+                }
+                if (yes)
+                {
+                    break;
+                }
+            }
+
+
+
+            // присваеваем выбранный клуб
+            foreach (Club item in RPL)
+            {
+                if (item.Name == nameMyClub)
+                {
+                    myClub = item;
+                    break;
+                }
+            }
+            
+            Console.WriteLine("Вы выбрали клуб: {0}", myClub.Name);
+            Console.WriteLine("---------------------------");
+
+
             // Делаем матчи
             Calendar matches = new Calendar();
-            matches.MatchMetod(RPL);
+            matches.MatchMetod(RPL, myClub);
+
+
+
+            // Вывод таблицы РПЛ
+            Console.WriteLine("Таблица РПЛ");
+            ScorePointTable table = new ScorePointTable();
+            table.DrawTable(RPL);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             Console.WriteLine("----------------");
-
-            // Вывод 
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", rotor.Name, rotor.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", spartak.Name, spartak.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", lokomotiv.Name, lokomotiv.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", cska.Name, cska.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", zenit.Name, zenit.ScorePoint);
-            Console.WriteLine("{0} набрал {1} очков в РПЛ!", dinamo.Name, dinamo.ScorePoint);
-
-
-
-
-
-
-            /*
-            // Вывели составы команд.
-            Console.WriteLine("----------------");
-            spartak.ShowPlayerList();
-            Console.WriteLine("----------------");
-            rotor.ShowPlayerList();
-            Console.WriteLine("----------------");
-            dinamo.ShowPlayerList();
-            */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             /*
 Вариант 1. Ну если тебе нужно просто указать клуб у игрока, то создаёшь ему свойства типа Club и при

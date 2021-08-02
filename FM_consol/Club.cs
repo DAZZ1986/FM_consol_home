@@ -23,33 +23,61 @@ namespace FM_consol
 
         public List<Player> team;
 
+        public static List<Player> RPLPlayerLocal = new List<Player>(); // создал доп массив с игроками в методе
+
 
 
         public Club()
         {
-
             team = new List<Player>();
-
         }
 
 
-
-
-
-        public void ShowPlayerList()
+        // return RPLPlayerLocal
+        public List<Player> AllPlayerList()
         {
-            Console.WriteLine(Name);
+            return RPLPlayerLocal;
+        }
+
+        // Set dop List со всеми игроками РПЛ
+        public void SetAllPlayerList(List<Player> all)
+        {
+            foreach (Player item in all) // заполнил доп массив
+            {
+                RPLPlayerLocal.Add(item);
+            }
+        }
+
+        // Show List со всеми игроками РПЛ
+        public void ShowAllPlayerList()
+        {
+            Console.WriteLine("{0,-13} | {1,-5} | {2,-4}", "Имя", "Скилл", "Цена");
+            foreach (Player item in RPLPlayerLocal) // вывод доп массива
+            {
+                Console.WriteLine("{0,-13} | {1,-5} | {2,-4}", item.LastName, item.SkillPoint, item.Price);
+            }
+            Console.WriteLine("-----------------------------------");
+        }
+
+        // состав вашей команды, как метод понял что я суда передал клуб Ротор???
+        public void ShowMyPlayerList()
+        {
             foreach (Player item in team)
             {
                 Console.WriteLine(item.LastName);
             }
+            Console.WriteLine("----------------");
         }
 
-        public void ClubBalans(string clubName, int num)
+        // баланс клуба
+        public void ClubBalans(Club obj)
         {
-            Console.WriteLine("Баланс клуба {0} = {1}", clubName, Balanse);
+            Console.WriteLine("----------------");
+            Console.WriteLine("Баланс клуба {0} = {1}", obj.Name, obj.Balanse);
+            Console.WriteLine("----------------");
         }
 
+        // сила игроков клубов РПЛ
         public int ClubPowerCounter(List <Player> team)
         {
             foreach (Player item in team)
